@@ -16,6 +16,7 @@
     <link href="${ctx}/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
+
 <body>
 <div class="container-fluid">
     <div class="row-fluid">
