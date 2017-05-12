@@ -62,34 +62,44 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Bordered Table</h3>
+                    <h3 class="box-title">任务看板</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <table class="table table-bordered">
                         <tr>
-                            <th >#</th>
-                            <th>Task</th>
-                            <th>Progress</th>
-                            <th >Label</th>
+                            <th class="col-md-3">未开始</th>
+                            <th class="col-md-3">进行中</th>
+                            <th class="col-md-3">已完成</th>
+
+                            <th class="col-md-3">已关闭</th>
                         </tr>
                         <tr>
                             <td>
-                                <div class="box box-success box-solid">
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title">Removable</h3>
 
-                                        <div class="box-tools pull-right">
-                                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                                        </div>
-                                        <!-- /.box-tools -->
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <div class="box-body">
-                                        The body of the box
-                                    </div>
-                                    <!-- /.box-body -->
-                                </div>
+                                       <table class="table ">
+                                           <c:forEach items="${wait}" var="task">
+                                           <tr>
+
+                                                   <td>
+                                                       <div class="box box-success box-solid">
+                                                           <div class="box-header with-border">
+                                                               <h3 class="box-title">${task.name}</h3>
+                                                               <h3 class="box-title pull-right ">${task.project.name}</h3>
+                                                               <!-- /.box-tools -->
+                                                           </div>
+                                                           <!-- /.box-header -->
+                                                           <div class="box-body">
+                                                                 <div class="pull-left">${task.user.realname}</div>
+                                                               <div class="pull-right">${task.estimate}h</div>
+                                                           </div>
+                                                           <!-- /.box-body -->
+                                                       </div>
+                                                   </td>
+                                           </tr>
+                                           </c:forEach>
+                                       </table>
+
                             </td>
                             <td>
                                 <div class="info-box bg-aqua">
@@ -138,17 +148,15 @@
         </div>
     </div>
     <!-- Main Footer -->
-    <footer class="main-footer">
-        <!-- To the right -->
-        <div class="pull-right  ">
-            Anything you want
-        </div>
+
+    <footer class="main-footer ">
+
         <!-- Default to the left -->
         <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
     </footer>
-
-
 </div>
+
+
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
