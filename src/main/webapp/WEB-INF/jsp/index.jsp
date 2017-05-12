@@ -3,6 +3,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <html>
 
@@ -65,27 +66,18 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">任务看板</h3>
                 </div>
-                <c:forEach items="${projects}" var="project">
-                <div class="progress-group col-md-8 ">
-                    <span class="progress-text">${project.name}</span>
-                    <span class="progress-number"><b>${project.waitSum+project.doingSum}/${project.waitSum+project.doingSum+project.doneSum}</b></span>
 
-                    <div class="progress sm">
-                        <div class="progress-bar ${project.color}" style="width: ${(project.waitSum+project.doingSum)/(project.waitSum+project.doingSum+project.doneSum)*100}%"></div>
-                    </div>
-                </div>
-                </c:forEach>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <table class="table table-bordered">
                         <tr>
-                            <th class="col-md-4">未开始</th>
-                            <th class="col-md-4">进行中</th>
-                            <th class="col-md-4">已完成</th>
+                            <th class="col-md-3">未开始<div class="pull-right" >(${fn:length(wait)})</div> </th>
+                            <th class="col-md-3">进行中<div class="pull-right" >(${fn:length(doing)})</div></th>
+                            <th class="col-md-3">已完成<div class="pull-right" >(${fn:length(done)})</div></th>
+                            <th class="col-md-3">项目概览<div class="pull-right"> (${fn:length(projects)})</div></th>
                         </tr>
                         <tr>
                             <td>
-
                                        <table class="table ">
                                            <c:forEach items="${wait}" var="task">
                                            <tr>
@@ -157,6 +149,24 @@
                                                         <div class="pull-right">${task.consumed}h</div>
                                                     </div>
                                                     <!-- /.box-body -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </table>
+                            </td>
+                            <td>
+                                <table class="table ">
+                                    <c:forEach items="${projects}" var="project">
+                                        <tr>
+                                            <td>
+                                                <div class="progress-group">
+                                                    <span class="progress-text">${project.name}</span>
+                                                    <span class="progress-number"><b>${project.waitSum+project.doingSum}/${project.waitSum+project.doingSum+project.doneSum}(<fmt:formatNumber value="${(project.waitSum+project.doingSum)/(project.waitSum+project.doingSum+project.doneSum)*100}" pattern="#0.00"/>%)</b></span>
+
+                                                    <div class="progress sm">
+                                                        <div class="progress-bar ${project.color}" style="width: ${(project.waitSum+project.doingSum)/(project.waitSum+project.doingSum+project.doneSum)*100}%"></div>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>
