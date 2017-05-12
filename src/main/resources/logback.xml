@@ -7,7 +7,7 @@
 	</appender>
 
 	<appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>/home/server/logs/terra.log</file>
+		<file>zantaoBig.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>logs/terra.%d{yyyy-MM-dd}.log</fileNamePattern>
 		</rollingPolicy>
