@@ -20,7 +20,12 @@ public class IndexController {
     @RequestMapping("/")
     public String index(Model model) {
        List<Task> wait=taskService.getWaitTask();
-       model.addAttribute("wait",wait);
+
+       List<Task> doing=taskService.getDoTask();
+       List<Task> done=taskService.getDoneTask();
+        model.addAttribute("wait",wait);
+        model.addAttribute("doing",doing);
+        model.addAttribute("done",done);
        return "/index";
     }
 }

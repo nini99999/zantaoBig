@@ -16,17 +16,6 @@ public class Project extends AbstractEntity {
 
     private String name;
 
-
-//
-//    @OneToMany(cascade = CascadeType.ALL)
-//    private List<Task> tasks;
-//    public List<Task> getTasks() {
-//        return tasks;
-//    }
-//
-//    public void setTasks(List<Task> tasks) {
-//        this.tasks = tasks;
-//    }
     public String getName() {
         return name;
     }

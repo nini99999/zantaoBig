@@ -16,10 +16,27 @@ import java.util.List;
 public class TaskService {
     @Autowired
     private TaskDao taskDao;
-    /*
-      获取等待的task
+
+    /**
+     * 获取等待的task
+     * @return
      */
     public List<Task> getWaitTask(){
       return taskDao.findByStatusAndDeleted("wait","0");
+    }
+
+    /**
+     * 获取进行的Task
+     * @return
+     */
+    public List<Task> getDoTask(){
+        return taskDao.findByStatusAndDeleted("doing","0");
+    }
+    /**
+     * 获取已完成的Task
+     * @return
+     */
+    public List<Task> getDoneTask(){
+        return taskDao.findByStatusAndDeleted("done","0");
     }
 }

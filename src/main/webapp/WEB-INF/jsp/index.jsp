@@ -11,6 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
+    <meta http-equiv="refresh" content="300">
     <title>zentaoBIG</title>
     <!-- Bootstrap Core CSS -->
     <link href="${ctx}/css/bootstrap.min.css" rel="stylesheet">
@@ -68,11 +69,9 @@
                 <div class="box-body">
                     <table class="table table-bordered">
                         <tr>
-                            <th class="col-md-3">未开始</th>
-                            <th class="col-md-3">进行中</th>
-                            <th class="col-md-3">已完成</th>
-
-                            <th class="col-md-3">已关闭</th>
+                            <th class="col-md-4">未开始</th>
+                            <th class="col-md-4">进行中</th>
+                            <th class="col-md-4">已完成</th>
                         </tr>
                         <tr>
                             <td>
@@ -102,45 +101,58 @@
 
                             </td>
                             <td>
-                                <div class="info-box bg-aqua">
-                                <span class="info-box-icon"><i class="fa fa-bookmark-o"></i></span>
+                                <table class="table ">
+                                    <c:forEach items="${doing}" var="task">
+                                        <tr>
 
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Bookmarks</span>
-                                    <span class="info-box-number">41,410</span>
+                                            <td>
+                                                <div class="box  box-primary box-solid">
+                                                    <div class="box-header with-border">
+                                                        <h3 class="box-title">${task.name}</h3>
+                                                        <h3 class="box-title pull-right ">${task.project.name}</h3>
+                                                        <!-- /.box-tools -->
+                                                    </div>
+                                                    <!-- /.box-header -->
+                                                    <div class="box-body">
+                                                        <div class="pull-left">${task.user.realname}</div>
+                                                        <div class="pull-right">${task.consumed}h/${task.estimate}h</div><br>
+                                                        <div class="progress">
+                                                            <div class="progress-bar" style="width: ${task.consumed/task.estimate*100}%"></div>
+                                                        </div>
 
-                                    <div class="progress">
-                                        <div class="progress-bar" style="width: 70%"></div>
-                                    </div>
-                                    <span class="progress-description">
-                    70% Increase in 30 Days
-                  </span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                                <!-- /.info-box -->
+                                                    </div>
+                                                    <!-- /.box-body -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </table>
 
                 </td>
                             <td>
-                                <div class="box box-success box-solid">
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title">Removable</h3>
+                                <table class="table ">
+                                    <c:forEach items="${done}" var="task">
+                                        <tr>
 
-                                        <div class="box-tools pull-right">
-                                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                                        </div>
-                                        <!-- /.box-tools -->
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <div class="box-body">
-                                        <div class="progress">
-                                            <div class="progress-bar" style="width: 70%"></div>
-                                        </div>
-                                    </div>
-                                    <!-- /.box-body -->
-                                </div>
+                                            <td>
+                                                <div class="box box-solid box-default">
+                                                    <div class="box-header with-border">
+                                                        <h3 class="box-title">${task.name}</h3>
+                                                        <h3 class="box-title pull-right ">${task.project.name}</h3>
+                                                        <!-- /.box-tools -->
+                                                    </div>
+                                                    <!-- /.box-header -->
+                                                    <div class="box-body">
+                                                        <div class="pull-left">${task.user.realname}</div>
+                                                        <div class="pull-right">${task.consumed}h</div>
+                                                    </div>
+                                                    <!-- /.box-body -->
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </table>
                             </td>
-                            <td><span class="badge bg-red">55%</span></td>
                         </tr>
                     </table>
                 </div>
@@ -149,7 +161,7 @@
     </div>
     <!-- Main Footer -->
 
-    <footer class="main-footer ">
+    <footer class="main-footer col-md-12">
 
         <!-- Default to the left -->
         <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
