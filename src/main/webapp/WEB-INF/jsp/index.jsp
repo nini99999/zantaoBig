@@ -65,6 +65,16 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">任务看板</h3>
                 </div>
+                <c:forEach items="${projects}" var="project">
+                <div class="progress-group col-md-8 ">
+                    <span class="progress-text">${project.name}</span>
+                    <span class="progress-number"><b>${project.waitSum+project.doingSum}/${project.waitSum+project.doingSum+project.doneSum}</b></span>
+
+                    <div class="progress sm">
+                        <div class="progress-bar ${project.color}" style="width: ${(project.waitSum+project.doingSum)/(project.waitSum+project.doingSum+project.doneSum)*100}%"></div>
+                    </div>
+                </div>
+                </c:forEach>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <table class="table table-bordered">
