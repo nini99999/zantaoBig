@@ -38,27 +38,6 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-    <!-- Main Header -->
-    <header class="main-header">
-
-        <!-- Logo -->
-        <a class="logo">
-            <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>Z</b>B</span>
-            <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>ZENTAO</b>BIG</span>
-        </a>
-
-        <!-- Header Navbar -->
-        <nav class="navbar navbar-static-top" role="navigation">
-            <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                <span class="sr-only">Toggle navigation</span>
-            </a>
-            <!-- Navbar Right Menu -->
-
-        </nav>
-    </header>
 
     <div class="row">
         <div class="col-md-12">
@@ -162,10 +141,10 @@
                                             <td>
                                                 <div class="progress-group">
                                                     <span class="progress-text">${project.name}</span>
-                                                    <span class="progress-number"><b>${project.waitSum+project.doingSum}/${project.waitSum+project.doingSum+project.doneSum}(<fmt:formatNumber value="${(project.waitSum+project.doingSum)/(project.waitSum+project.doingSum+project.doneSum)*100}" pattern="#0.00"/>%)</b></span>
+                                                    <span class="progress-number"><b>${project.doneSum+project.closedSum+project.cancelSum}/${project.waitSum+project.doingSum+project.doneSum+project.closedSum+project.cancelSum}(<fmt:formatNumber value="${(project.doneSum+project.closedSum+project.cancelSum)/(project.waitSum+project.doingSum+project.doneSum+project.closedSum+project.cancelSum)*100}" pattern="#0.00"/>%)</b></span>
 
                                                     <div class="progress sm">
-                                                        <div class="progress-bar ${project.color}" style="width: ${(project.waitSum+project.doingSum)/(project.waitSum+project.doingSum+project.doneSum)*100}%"></div>
+                                                        <div class="progress-bar ${project.color}" style="width: ${(project.doneSum+project.closedSum+project.cancelSum)/(project.waitSum+project.doingSum+project.doneSum+project.closedSum+project.cancelSum)*100}%"></div>
                                                     </div>
                                                 </div>
                                             </td>

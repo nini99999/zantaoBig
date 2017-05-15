@@ -11,6 +11,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface TaskDao extends CrudRepository<Task, Long> {
-    List<Task> findByStatusAndDeleted(String status,String deleted);
+    List<Task> findByStatusAndDeletedOrderByLastediteddateDescOpeneddateDesc(String status,String deleted);
     Long countByStatusAndDeletedAndProject(String status,String deleted,Project project);
 }

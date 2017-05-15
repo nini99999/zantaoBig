@@ -21,8 +21,9 @@ public class TaskService {
      * 获取等待的task
      * @return
      */
+
     public List<Task> getWaitTask(){
-      return taskDao.findByStatusAndDeleted("wait","0");
+      return taskDao.findByStatusAndDeletedOrderByLastediteddateDescOpeneddateDesc("wait","0");
     }
 
     /**
@@ -30,13 +31,13 @@ public class TaskService {
      * @return
      */
     public List<Task> getDoTask(){
-        return taskDao.findByStatusAndDeleted("doing","0");
+        return taskDao.findByStatusAndDeletedOrderByLastediteddateDescOpeneddateDesc("doing","0");
     }
     /**
      * 获取已完成的Task
      * @return
      */
     public List<Task> getDoneTask(){
-        return taskDao.findByStatusAndDeleted("done","0");
+        return taskDao.findByStatusAndDeletedOrderByLastediteddateDescOpeneddateDesc("done","0");
     }
 }

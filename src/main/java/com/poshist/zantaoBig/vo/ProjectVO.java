@@ -7,8 +7,26 @@ public class ProjectVO {
     private Long waitSum;
     private Long doingSum;
     private Long doneSum;
+    private Long closedSum;
+    private Long cancelSum;
     private String color;
     private String name;
+
+    public Long getClosedSum() {
+        return closedSum;
+    }
+
+    public void setClosedSum(Long closedSum) {
+        this.closedSum = closedSum;
+    }
+
+    public Long getCancelSum() {
+        return cancelSum;
+    }
+
+    public void setCancelSum(Long cancelSum) {
+        this.cancelSum = cancelSum;
+    }
 
     public String getName() {
         return name;

@@ -39,6 +39,8 @@ public class ProjectService {
              vo.setWaitSum(taskDao.countByStatusAndDeletedAndProject("wait","0",project));
              vo.setDoingSum(taskDao.countByStatusAndDeletedAndProject("doing","0",project));
              vo.setDoneSum(taskDao.countByStatusAndDeletedAndProject("done","0",project));
+             vo.setCancelSum(taskDao.countByStatusAndDeletedAndProject("cancel","0",project));
+             vo.setClosedSum(taskDao.countByStatusAndDeletedAndProject("closed","0",project));
              vo.setColor(ColorUtils.getprogressColor(i));
              i++;
              vos.add(vo);

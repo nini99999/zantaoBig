@@ -3,6 +3,7 @@ package com.poshist.zantaoBig.entity;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 /**
  * Created by server on 17-5-12.
@@ -27,6 +28,24 @@ public class Task extends AbstractEntity {
     private float estimate;
     //耗时
     private float consumed;
+    private Date lastediteddate;
+    private Date openeddate;
+
+    public Date getOpeneddate() {
+        return openeddate;
+    }
+
+    public void setOpeneddate(Date openeddate) {
+        this.openeddate = openeddate;
+    }
+
+    public Date getLastediteddate() {
+        return lastediteddate;
+    }
+
+    public void setLastediteddate(Date lastediteddate) {
+        this.lastediteddate = lastediteddate;
+    }
 
     public float getEstimate() {
         return estimate;
