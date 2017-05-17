@@ -30,6 +30,28 @@ public class Task extends AbstractEntity {
     private float consumed;
     private Date lastediteddate;
     private Date openeddate;
+    @ManyToOne
+    @JoinColumn(name="openedby",referencedColumnName="account")
+    private User openUser;
+    @ManyToOne
+    @JoinColumn(name="finishedby",referencedColumnName="account")
+    private User finishUser;
+
+    public User getOpenUser() {
+        return openUser;
+    }
+
+    public void setOpenUser(User openUser) {
+        this.openUser = openUser;
+    }
+
+    public User getFinishUser() {
+        return finishUser;
+    }
+
+    public void setFinishUser(User finishUser) {
+        this.finishUser = finishUser;
+    }
 
     public Date getOpeneddate() {
         return openeddate;

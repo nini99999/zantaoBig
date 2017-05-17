@@ -66,7 +66,7 @@
                                            <tr>
 
                                                    <td>
-                                                       <div class="box box-success box-solid">
+                                                       <div class="box box-default box-solid">
                                                            <div class="box-header with-border">
                                                                <h3 class="box-title">${task.name}</h3>
                                                                <h3 class="box-title pull-right ">${task.project.name}</h3>
@@ -75,7 +75,7 @@
                                                            </div>
                                                            <!-- /.box-header -->
                                                            <div class="box-body">
-                                                                 <div class="pull-left">${task.user.realname}</div>
+                                                                 <div class="pull-left">创建人：<B>${task.openUser.realname}</B>&nbsp;&nbsp;&nbsp;&nbsp;指派给：<B>${task.user.realname}</B>&nbsp;&nbsp;&nbsp;&nbsp;</div>
                                                                <div class="pull-right">${task.estimate}h</div>
                                                            </div>
                                                            <!-- /.box-body -->
@@ -92,7 +92,8 @@
                                         <tr>
 
                                             <td>
-                                                <div class="box  box-primary box-solid">
+                                                <c:if test="${task.estimate>=task.consumed}"><div class="box  box-success box-solid"></c:if>
+                                                    <c:if test="${task.estimate<task.consumed}"><div class="box  box-danger box-solid"></c:if>
                                                     <div class="box-header with-border">
                                                         <h3 class="box-title">${task.name}</h3>
                                                         <h3 class="box-title pull-right ">${task.project.name}</h3>
@@ -100,7 +101,7 @@
                                                     </div>
                                                     <!-- /.box-header -->
                                                     <div class="box-body">
-                                                        <div class="pull-left">${task.user.realname}</div>
+                                                        <div class="pull-left">创建人：<B>${task.openUser.realname}</B>&nbsp;&nbsp;&nbsp;&nbsp;指派给：<B>${task.user.realname}</B>&nbsp;&nbsp;&nbsp;&nbsp;</div>
                                                         <div class="pull-right">${task.consumed}h/${task.estimate}h</div><br>
                                                         <div class="progress">
                                                             <div class="progress-bar" style="width: ${task.consumed/task.estimate*100}%"></div>
@@ -121,7 +122,7 @@
                                         <tr>
 
                                             <td>
-                                                <div class="box box-solid box-default">
+                                                <div class="box box-solid box-primary">
                                                     <div class="box-header with-border">
                                                         <h3 class="box-title">${task.name}</h3>
                                                         <h3 class="box-title pull-right ">${task.project.name}</h3>
@@ -129,7 +130,7 @@
                                                     </div>
                                                     <!-- /.box-header -->
                                                     <div class="box-body">
-                                                        <div class="pull-left">${task.user.realname}</div>
+                                                        <div class="pull-left">创建人：<B>${task.openUser.realname}</B>&nbsp;&nbsp;&nbsp;&nbsp;指派给：<B>${task.user.realname}</B>&nbsp;&nbsp;&nbsp;&nbsp;完成人：<b>${task.finishUser.realname}</b></div>
                                                         <div class="pull-right">${task.consumed}h</div>
                                                     </div>
                                                     <!-- /.box-body -->
