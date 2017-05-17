@@ -33,7 +33,13 @@
     <!-- Bootstrap 3.3.7 -->
     <script src="${ctx}/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="${ctx}/dist/js/app.min.js"></script>
+    <script src="${ctx}/js/app.min.js"></script>
+
+    <!-- Slimscroll -->
+    <script src="${ctx}/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="${ctx}/plugins/fastclick/fastclick.js"></script>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -42,9 +48,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">任务看板</h3>
-                </div>
+
 
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -66,6 +70,7 @@
                                                            <div class="box-header with-border">
                                                                <h3 class="box-title">${task.name}</h3>
                                                                <h3 class="box-title pull-right ">${task.project.name}</h3>
+
                                                                <!-- /.box-tools -->
                                                            </div>
                                                            <!-- /.box-header -->
