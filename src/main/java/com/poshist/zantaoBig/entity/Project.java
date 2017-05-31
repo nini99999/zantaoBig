@@ -18,6 +18,17 @@ public class Project extends AbstractEntity {
 
     private String deleted;
 
+
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getDeleted() {
         return deleted;
     }

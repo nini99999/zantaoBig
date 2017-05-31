@@ -9,5 +9,5 @@ import java.util.List;
  * Created by server on 17-5-12.
  */
 public interface ProjectDao extends CrudRepository<Project, Long> {
-    List<Project>findAllByDeleted(String deleted);
+    List<Project>findAllByDeletedAndStatus(String deleted,String status);
 }

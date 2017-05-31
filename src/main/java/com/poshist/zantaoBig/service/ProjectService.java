@@ -28,7 +28,7 @@ public class ProjectService {
      * @return
      */
     public List<ProjectVO> getProjectProgress(){
-         List<Project> list=projectDao.findAllByDeleted("0");
+         List<Project> list=projectDao.findAllByDeletedAndStatus("0","doing");
          List<ProjectVO> vos=new ArrayList<ProjectVO>();
          long i=0;
          for(Project project:list){

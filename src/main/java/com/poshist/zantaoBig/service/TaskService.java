@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +24,9 @@ public class TaskService {
      */
 
     public List<Task> getWaitTask(){
-      return taskDao.findByStatusAndDeletedOrderByLastediteddateDescOpeneddateDesc("wait","0");
+        List<Task> list= taskDao.findByStatusAndDeletedOrderByLastediteddateDescOpeneddateDesc("wait","0");
+        return removeDoneProject(list);
+
     }
 
     /**
@@ -31,13 +34,33 @@ public class TaskService {
      * @return
      */
     public List<Task> getDoTask(){
-        return taskDao.findByStatusAndDeletedOrderByLastediteddateDescOpeneddateDesc("doing","0");
+        List<Task> list= taskDao.findByStatusAndDeletedOrderByLastediteddateDescOpeneddateDesc("doing","0");
+        return  removeDoneProject(list);
+
     }
     /**
      * 获取已完成的Task
      * @return
      */
     public List<Task> getDoneTask(){
-        return taskDao.findByStatusAndDeletedOrderByLastediteddateDescOpeneddateDesc("done","0");
+        List<Task> list= taskDao.findByStatusAndDeletedOrderByLastediteddateDescOpeneddateDesc("done","0");
+        return removeDoneProject(list);
+
+    }
+
+    /**
+     * 清除非进行中项目的任务
+     * @param list
+     */
+    private List<Task> removeDoneProject (List<Task> list) {
+        List<Task> newList=new ArrayList<Task>();
+        if (null != list) {
+            for (Task task : list) {
+                if ("doing".equals(task.getProject().getStatus())) {
+                    newList.add(task);
+                }
+            }
+        }
+        return newList;
     }
 }
